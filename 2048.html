@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <style type="text/css">
+  *{
+	margin:0px;
+	padding:0px;
+  }
+	#gridPanel{
+		width:480px;
+		height:480px;
+		background-color:#bbada0;
+		border-radius:10px;
+		padding:20px 0 0 20px;
+		position:relative;
+		margin:0 auto;
+	}
+	.cell,.fcell{
+		width:100px;
+		height:100px;
+		border-radius:6px;
+	}
+	.cell{
+		background-color:#ccc0b3;
+		float:left;
+		margin-right:20px;
+		margin-bottom:20px;
+	}
+	.fcell{
+		background-color:#fff;
+		line-height:100px;
+		text-align:center;
+		font-size:60px;
+		position:absolute;
+	}
+	#fc00,#fc01,#fc02,#fc03{top:20px;}
+	#fc10,#fc11,#fc12,#fc13{top:140px;}
+	#fc20,#fc21,#fc22,#fc23{top:260px;}
+	#fc30,#fc31,#fc32,#fc33{top:380px;}
+	
+	#fc00,#fc10,#fc20,#fc30{left:20px;}
+	#fc01,#fc11,#fc21,#fc31{left:140px;}
+	#fc02,#fc12,#fc22,#fc32{left:260px;}
+	#fc03,#fc13,#fc23,#fc33{left:380px;}
+
+	.n2{background:#eee4da}
+	.n4{background:#ede0c8}
+	.n8{background:#f2b179}
+	.n16{background:#f59563}
+	.n32{background:#f67c5f}
+	.n64{background:#f65e3b}
+	.n128{background:#edcf72}
+	.n256{background:#edcc61}
+	.n512{background:#9c0}
+	.n1024{background:#33b5e5}
+	.n2048{background:#09c}
+	.n4096{background:#a6c}
+	.n8192{background:#93c}
+	.n1024,.n2048,.n4096,.n8192{font-size:40px;}
+	.n8,.n16,.n32,.n64,.n128,.n256,.n512,.n1024,.n2048
+	,.n4096,.n8192{color:#fff}
+	button{
+		position:relative;
+		top:10px;
+	}
+  </style>
+ </head>
+ <body>
+  <div id="gridPanel">
+	<div id="c00" class="cell"></div>
+	<div id="c01" class="cell"></div>
+	<div id="c02" class="cell"></div>
+	<div id="c03" class="cell"></div>
+
+	<div id="c10" class="cell"></div>
+	<div id="c11" class="cell"></div>
+	<div id="c12" class="cell"></div>
+	<div id="c13" class="cell"></div>
+
+	<div id="c20" class="cell"></div>
+	<div id="c21" class="cell"></div>
+	<div id="c22" class="cell"></div>
+	<div id="c23" class="cell"></div>
+
+	<div id="c30" class="cell"></div>
+	<div id="c31" class="cell"></div>
+	<div id="c32" class="cell"></div>
+	<div id="c33" class="cell"></div>
+
+
+
+	<div id="fc00" class="fcell"></div>
+	<div id="fc01" class="fcell"></div>
+	<div id="fc02" class="fcell"></div>
+	<div id="fc03" class="fcell"></div>
+
+	<div id="fc10" class="fcell"></div>
+	<div id="fc11" class="fcell"></div>
+	<div id="fc12" class="fcell"></div>
+	<div id="fc13" class="fcell"></div>
+
+	<div id="fc20" class="fcell"></div>
+	<div id="fc21" class="fcell"></div>
+	<div id="fc22" class="fcell"></div>
+	<div id="fc23" class="fcell"></div>
+
+	<div id="fc30" class="fcell"></div>
+	<div id="fc31" class="fcell"></div>
+	<div id="fc32" class="fcell"></div>
+	<div id="fc33" class="fcell"></div>
+  </div>
+  <script src="2048.js"></script>
+  <script>
+	game.start();
+	document.onkeydown=function(){
+	  if(game.state==game.PLAYING){
+		var evt=window.event||arguments[0];
+		if(evt.keyCode==37){
+			game.moveLeft();
+		}else if(evt.keyCode==39){
+			game.moveRight();
+		}else if(evt.keyCode==38){
+			game.moveUp();
+		}else if(evt.keyCode==40){
+			game.moveDown();
+		}
+		if(game.gameOver()){
+			game.state=game.GAME_OVER;
+			alert("gameover");
+		}
+	  }
+	}
+	
+	
+	
+
+	
+  </script>
+ </body>
+</html>
